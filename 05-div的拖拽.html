@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<style>
+    #box1 {
+        width: 100px;
+        height: 100px;
+        background-color: aqua;
+        position: absolute;
+    }
+</style>
+
+<script type="text/javascript">
+    window.onload = function () {
+        /*
+         * 拖拽box1元素
+         *  -拖拽的流程
+         *   1 当鼠标在被拖拽元素上按下时，开始拖拽
+         *   2 处于拖拽状态下，当鼠标移动时被拖拽元素跟随鼠标移动
+         *   3 当鼠标松开时，被拖拽元素固定在当前位置
+         */
+
+        //求出div相对于鼠标的偏移量
+        //向上偏移量 = 鼠标.clientX - div.offsetTop
+        //向左偏移量 = 鼠标.clientY - div.offsetLeft
+
+        let box1 = document.getElementById("box1")
+        box1.onmousedown = function (event) {
+
+            let ol = event.pageX - box1.offsetLeft
+            let ot = event.pageY - box1.offsetTop
+
+            document.onmousemove = function (event) {
+                // alert("鼠标移动了")
+                let left = event.pageX
+                let top = event.pageY
+                box1.style.left = left - ol + "px"
+                box1.style.top = top - ot + "px"
+            };
+
+            document.onmouseup = function () {
+                document.onmousemove = null
+                document.onmouseup = null
+            }
+
+            return false
+        }
+
+    }
+</script>
+
+<body>
+
+我是一段文字
+
+<div id="box1"></div>
+</body>
+</html>

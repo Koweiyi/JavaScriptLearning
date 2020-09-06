@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box1{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            background-color: red;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function () {
+
+            let box = document.getElementById("box1")
+            let speed = 10
+
+            document.onkeydown = function (event) {
+
+                if (event.ctrlKey){
+                    speed = 100
+                }
+
+                if (event.shiftKey){
+                    speed = 20
+                }
+
+                let key = event.key
+                // console.log(key)
+                switch (key) {
+                    case "ArrowUp":
+                        // alert("向上")
+                        box.style.top = box.offsetTop - speed + "px"
+                        break
+                    case "ArrowLeft":
+                        // alert("向左")
+                        box.style.left = box.offsetLeft - speed + "px"
+                        break
+                    case "ArrowDown":
+                        // alert("向下")
+                        box.style.top = box.offsetTop + speed + "px"
+                        break
+                    case "ArrowRight":
+                        // alert("向右")
+                        box.style.left = box.offsetLeft + speed + "px"
+                        break
+                }
+
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div id="box1"></div>
+
+</body>
+</html>

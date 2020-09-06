@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script  type="text/javascript">
+        window.onload = function () {
+            document.onkeydown = function (event) {
+                if (event.key === 'a' && event.ctrlKey){
+                    alert("按键a和Ctrl都被按下了")
+                }
+            }
+
+            let input = document.getElementsByTagName("input")[0]
+            input.onkeydown = function (e) {
+                if(e.key >= '0' && e.key <= '9')
+                    return false
+            }
+        }
+    </script>
+</head>
+<body>
+
+<label>
+    <input type="text">
+</label>
+
+</body>
+</html>
