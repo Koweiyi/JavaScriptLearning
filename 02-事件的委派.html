@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        #ul1{
+            background-color: aqua;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function (){
+
+            let ul = document.getElementById('ul1')
+
+            ul.onclick = function (event){
+                if(event.target.className == "link"){
+                    alert("我是ul的单击响应函数~~~")
+                }
+            }
+
+            let btn = document.getElementById('btn')
+            btn.onclick = function () {
+                let li = document.createElement("li")
+                li.innerHTML = '<a href="javascript:;" class="link">超链接</a> '
+                ul.appendChild(li)
+            }
+
+            // let allA = document.getElementsByTagName("a")
+            // for (let i = 0 ; i < allA.length ; i ++){
+            //     allA[i].onclick = function () {
+            //         alert("我是A的单击响应函数")
+            //     }
+            // }
+        }
+    </script>
+</head>
+<body>
+    <button id="btn">添加一个超链接</button>
+    <ul id="ul1">
+        <li><a href="javascript:" class="link">超链接</a> </li>
+        <li><a href="javascript:" class="link">超链接</a> </li>
+        <li><a href="javascript:" class="link">超链接</a> </li>
+    </ul>
+</body>
+</html>
